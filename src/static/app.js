@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   authButton.addEventListener("click", async () => {
-    if (!teacherToken) {
+    if (!teacherToken || !teacherUsername) {
       openLoginModal();
       return;
     }
