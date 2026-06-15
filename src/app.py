@@ -81,8 +81,11 @@ activities = {
 }
 
 teachers_file = current_dir / "teachers.json"
-with teachers_file.open("r", encoding="utf-8") as teacher_data_file:
-    teacher_credentials = json.load(teacher_data_file)
+try:
+    with teachers_file.open("r", encoding="utf-8") as teacher_data_file:
+        teacher_credentials = json.load(teacher_data_file)
+except (FileNotFoundError, json.JSONDecodeError) as exc:
+    raise RuntimeError(f"Unable to load teacher credentials from {teachers_file}") from exc
 
 # In-memory teacher login sessions
 active_teacher_sessions: dict[str, str] = {}
