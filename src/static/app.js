@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isAuthenticated) {
       authButton.textContent = `🔒 Logout (${teacherUsername})`;
+      authButton.setAttribute("aria-label", "Teacher logout");
       authStatus.textContent = `Logged in as ${teacherUsername}. Teacher edits are enabled.`;
       signupForm.classList.remove("hidden");
       signupInfo.classList.add("hidden");
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else {
       authButton.textContent = "👤 Teacher Login";
+      authButton.setAttribute("aria-label", "Teacher login");
       authStatus.textContent =
         "Students can view participants. Teachers can edit registrations.";
       signupForm.classList.add("hidden");
