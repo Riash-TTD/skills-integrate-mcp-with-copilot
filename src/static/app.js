@@ -196,8 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("teacherToken");
         localStorage.removeItem("teacherUsername");
         updateAuthUi();
-        showMessage("Your teacher session expired. Please log in again.", "error");
-      } else {
+        showMessage("Your teacher session is no longer valid. Please log in again.", "error");
         showMessage(result.detail || "An error occurred", "error");
       }
     } catch (error) {
